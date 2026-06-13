@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us – ADM Developers | Mayur City</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body { padding-top: var(--nav-h); }
+
+    /* ── PAGE HERO ── */
+    .about-hero {
+      position: relative; height: 58vh; min-height: 400px;
+      display: flex; align-items: center; overflow: hidden;
+    }
+    .about-hero-bg {
+      position: absolute; inset: 0;
+      background: url('images/mayur_city2.jpeg') center/cover no-repeat;
+    }
+    .about-hero-bg::after {
+      content:''; position: absolute; inset: 0;
+      background: linear-gradient(110deg, rgba(10,30,18,.85) 40%, rgba(10,30,18,.38));
+    }
+    .about-hero-content { position: relative; z-index: 2; padding: 0 7%; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--gold-l); margin-bottom: 16px;
+    }
+    .hero-eyebrow::before { content:''; width: 28px; height: 1px; background: var(--gold-l); }
+    .hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 6vw, 74px); font-weight: 700;
+      color: #fff; line-height: 1.05; margin-bottom: 16px;
+    }
+    .hero-h1 em { color: var(--gold-l); font-style: italic; }
+    .hero-sub { font-size: 15px; color: rgba(255,255,255,.7); max-width: 480px; line-height: 1.75; }
+    .breadcrumb {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
+      background: var(--gold); padding: 10px 7%;
+      display: flex; gap: 8px; font-size: 12px; font-weight: 500; letter-spacing: .05em;
+    }
+    .breadcrumb a { color: rgba(255,255,255,.8); }
+    .breadcrumb a:hover { color: #fff; }
+    .breadcrumb span { color: #fff; }
+    .breadcrumb .sep { color: rgba(255,255,255,.5); }
+
+    /* ── WHO WE ARE ── */
+    .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .who-imgs { position: relative; padding-bottom: 40px; }
+    .who-img-main { width: 100%; aspect-ratio: 4/5; object-fit: cover; box-shadow: 20px 20px 0 var(--gold); }
+    .who-img-accent {
+      position: absolute; bottom: 0; right: -24px;
+      width: 46%; aspect-ratio: 1; object-fit: cover;
+      border: 5px solid var(--cream); box-shadow: 0 8px 28px rgba(0,0,0,.18);
+    }
+    .who-badge {
+      position: absolute; top: 32px; left: -20px;
+      background: var(--green); color: #fff; padding: 20px 22px; text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,.25); z-index: 2;
+    }
+    .who-badge-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--gold-l); display: block; }
+    .who-badge-label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-top: 2px; }
+
+    /* ── VISION / MISSION ── */
+    .vm-section { background: var(--green); }
+    .vm-section .section-title { color: #fff; }
+    .vm-section .divider { background: var(--gold-l); }
+    .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 48px; }
+    .vm-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); padding: 48px 40px; }
+    .vm-card:hover { background: rgba(255,255,255,.09); }
+    .vm-icon { font-size: 40px; margin-bottom: 20px; display: block; }
+    .vm-title { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--gold-l); margin-bottom: 16px; }
+    .vm-text { font-size: 14.5px; color: rgba(255,255,255,.68); line-height: 1.85; }
+
+    /* ── VALUES ── */
+    .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
+    .val-card {
+      padding: 36px 24px; border: 1px solid var(--light); text-align: center;
+      transition: border-color .25s, box-shadow .25s;
+    }
+    .val-card:hover { border-color: var(--gold); box-shadow: 0 8px 32px rgba(200,151,42,.12); }
+    .val-icon { font-size: 38px; margin-bottom: 16px; display: block; }
+    .val-title { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--green); margin-bottom: 10px; }
+    .val-desc { font-size: 13px; color: var(--mid); line-height: 1.75; }
+
+    /* ── DEVELOPER PROFILE ── */
+    .dev-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; }
+    .dev-img-wrap { position: relative; }
+    .dev-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
+    .dev-img-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(10,30,18,.9), transparent);
+      padding: 28px 24px;
+    }
+    .dev-name { font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; }
+    .dev-role { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-l); margin-top: 4px; }
+    .dev-highlights { margin-top: 28px; }
+    .dev-highlight {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 20px 0; border-bottom: 1px solid var(--light);
+    }
+    .dev-highlight:first-child { border-top: 1px solid var(--light); }
+    .dh-num {
+      font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700;
+      color: var(--gold); line-height: 1; flex-shrink: 0; min-width: 60px;
+    }
+    .dh-label { font-size: 13px; font-weight: 600; color: var(--green); margin-bottom: 3px; }
+    .dh-desc { font-size: 12.5px; color: var(--mid); line-height: 1.6; }
+
+    /* ── PROJECT SPECS ── */
+    .specs-section { background: var(--dark); }
+    .specs-section .section-title { color: #fff; }
+    .specs-section .section-label { color: var(--gold); }
+    .specs-section .divider { background: var(--gold); }
+    .specs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px; }
+    .spec-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.07); padding: 36px 28px; }
+    .spec-card:hover { background: rgba(200,151,42,.08); }
+    .spec-num { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; color: var(--gold-l); display: block; margin-bottom: 6px; }
+    .spec-label { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+    .spec-desc { font-size: 12.5px; color: rgba(255,255,255,.45); line-height: 1.65; }
+
+    /* ── RERA SECTION ── */
+    .rera-full {
+      background: var(--green); padding: 72px 5%;
+    }
+    .rera-full .section-title { color: #fff; }
+    .rera-full .divider { background: var(--gold-l); }
+    .rera-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 44px; }
+    .rera-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); padding: 28px 24px; }
+    .rc-label { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-l); margin-bottom: 10px; font-weight: 600; }
+    .rc-val { font-size: 15px; color: #fff; font-weight: 500; line-height: 1.5; }
+    .rc-sub { font-size: 12px; color: rgba(255,255,255,.45); margin-top: 5px; }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: var(--gold); padding: 72px 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 32px; flex-wrap: wrap;
+    }
+    .cta-strip-text { }
+    .cta-strip-title { font-family: 'Playfair Display', serif; font-size: clamp(26px,4vw,44px); color: #fff; margin-bottom: 10px; }
+    .cta-strip-sub { font-size: 15px; color: rgba(255,255,255,.8); }
+    .cta-strip-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .cta-btn-w {
+      background: #fff; color: var(--gold); padding: 14px 32px;
+      font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      transition: background .2s, color .2s; display: inline-block;
+    }
+    .cta-btn-w:hover { background: var(--green); color: #fff; }
+    .cta-btn-border {
+      border: 2px solid rgba(255,255,255,.6); color: #fff; padding: 13px 30px;
+      font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+      transition: background .2s; display: inline-block;
+    }
+    .cta-btn-border:hover { background: rgba(255,255,255,.15); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .who-grid { grid-template-columns: 1fr; gap: 48px; }
+      .who-img-accent { display: none; }
+      .who-imgs { padding-bottom: 0; }
+      .who-badge { display: none; }
+      .vm-grid { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .dev-grid { grid-template-columns: 1fr; }
+      .specs-grid { grid-template-columns: 1fr 1fr; }
+      .rera-cards { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 520px) {
+      .values-grid { grid-template-columns: 1fr; }
+      .specs-grid { grid-template-columns: 1fr; }
+      .rera-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<!-- NAV injected by nav.js -->
+
+<!-- ── PAGE HERO ── -->
+<div class="about-hero">
+  <div class="about-hero-bg"></div>
+  <div class="about-hero-content">
+    <span class="hero-eyebrow">ADM Developers · Jhajjar, Haryana</span>
+    <h1 class="hero-h1">Building Dreams,<br><em>Delivering Trust</em></h1>
+    <p class="hero-sub">Founded by real estate professionals with years of expertise, ADM Developers brings architecture and precision together in every project.</p>
+  </div>
+  <div class="breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="sep">›</span>
+    <span>About Us</span>
+  </div>
+</div>
+
+<!-- ── STATS BAR ── -->
+<div class="stats-bar">
+  <div class="stat-item"><span class="stat-num">311</span><span class="stat-label">Plots in Mayur City</span></div>
+  <div class="stat-item"><span class="stat-num">18.3</span><span class="stat-label">Acres of Land</span></div>
+  <div class="stat-item"><span class="stat-num">RERA</span><span class="stat-label">Registered 2025</span></div>
+  <div class="stat-item"><span class="stat-num">2024</span><span class="stat-label">Licence Granted</span></div>
+  <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Transparency</span></div>
+</div>
+
+<!-- ── WHO WE ARE ── -->
+<section id="who">
+  <div class="who-grid">
+    <div class="who-imgs">
+      <div class="who-badge">
+        <span class="who-badge-num">ADM</span>
+        <span class="who-badge-label">Developers</span>
+      </div>
+      <img class="who-img-main" src="images/mayur_city1.jpeg" alt="Mayur City Project" loading="lazy"/>
+      <img class="who-img-accent" src="images/mayur_city6.jpeg" alt="ADM Project" loading="lazy"/>
+    </div>
+    <div>
+      <span class="section-label">Who We Are</span>
+      <h2 class="section-title">ADM Developers —<br>Excellence in Real Estate</h2>
+      <div class="divider"></div>
+      <p class="section-desc">ADM Developers is founded by professionals with years of experience in the Real Estate industry. Our expertise lies in providing the best architectural solutions across a wide variety of portfolios — including Commercial, Residential, Industrial, and Farm Houses.</p>
+      <p class="section-desc" style="margin-top:14px;">Our experienced team understands the details involved in turning your dream of owning a plot into reality — with Comfort, Creativity, and Originality. Mayur City is a living example of our art and architecture with accuracy and perfection.</p>
+      <p class="section-desc" style="margin-top:14px;">Our head office is located at SCO 50-51, 3rd Floor, Old Judicial Complex, Parnami Tower, Civil Lines, Gurugram — with all original approvals and documents available for inspection.</p>
+      <div style="margin-top:32px; display:flex; gap:14px; flex-wrap:wrap;">
+        <a href="contact.html" class="btn-primary">Get in Touch</a>
+        <a href="index.html#pricing" class="btn-outline-g">View Pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VISION & MISSION ── -->
+<section id="vision" class="vm-section">
+  <span class="section-label">Our Philosophy</span>
+  <h2 class="section-title">Vision & Mission</h2>
+  <div class="divider"></div>
+  <div class="vm-grid">
+    <div class="vm-card">
+      <span class="vm-icon">🎯</span>
+      <div class="vm-title">Our Vision</div>
+      <p class="vm-text">To become the most trusted and respected name in affordable plotted development across Haryana and the NCR region — creating communities where families thrive, invest confidently, and build lifelong memories. We envision a future where quality housing is accessible to every family, not just a privileged few.</p>
+    </div>
+    <div class="vm-card">
+      <span class="vm-icon">🚀</span>
+      <div class="vm-title">Our Mission</div>
+      <p class="vm-text">To deliver RERA-registered, government-approved plotted communities with complete transparency, on-time possession, and world-class amenities — at prices that make sense. We combine architectural excellence with legal compliance, ensuring every buyer's investment is secure, rewarding, and stress-free from booking to possession.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CORE VALUES ── -->
+<section id="values">
+  <span class="section-label">What We Stand For</span>
+  <h2 class="section-title">Our Core Values</h2>
+  <div class="divider"></div>
+  <p class="section-desc">Every decision at ADM Developers is guided by principles that put the buyer first and build lasting trust.</p>
+  <div class="values-grid">
+    <div class="val-card">
+      <span class="val-icon">🤝</span>
+      <div class="val-title">Transparency</div>
+      <p class="val-desc">RERA-registered projects with all documents publicly available. No hidden charges, no false promises — just complete clarity at every stage of your purchase.</p>
+    </div>
+    <div class="val-card">
+      <span class="val-icon">🏗️</span>
+      <div class="val-title">Quality</div>
+      <p class="val-desc">We build with precision and purpose. From wide internal roads to landscaped greens, every element of Mayur City reflects our commitment to quality craftsmanship.</p>
+    </div>
+    <div class="val-card">
+      <span class="val-icon">⏱️</span>
+      <div class="val-title">Timeliness</div>
+      <p class="val-desc">We respect your investment timeline. Our projects are planned with realistic schedules and delivered with commitment, ensuring your money works on time.</p>
+    </div>
+    <div class="val-card">
+      <span class="val-icon">🌿</span>
+      <div class="val-title">Sustainability</div>
+      <p class="val-desc">10% of total land is dedicated to community green spaces. We design communities that breathe — with landscaping, open spaces, and nature integrated throughout.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── DEVELOPER PROFILE ── -->
+<section style="background: var(--cream);">
+  <div class="dev-grid">
+    <div class="dev-img-wrap">
+      <img class="dev-img" src="images/mayur_city3.jpeg" alt="ADM Developers Project" loading="lazy"/>
+      <div class="dev-img-overlay">
+        <div class="dev-name">ADM Developers</div>
+        <div class="dev-role">Real Estate Excellence Since Inception</div>
+      </div>
+    </div>
+    <div>
+      <span class="section-label">Developer Profile</span>
+      <h2 class="section-title">Why Choose<br>ADM Developers?</h2>
+      <div class="divider"></div>
+      <p class="section-desc">With a team of seasoned professionals from the real estate, architecture, and urban planning industries, ADM Developers brings a unique blend of expertise and integrity to every project.</p>
+      <div class="dev-highlights">
+        <div class="dev-highlight">
+          <div class="dh-num">311</div>
+          <div>
+            <div class="dh-label">Plots in Mayur City</div>
+            <div class="dh-desc">A fully planned gated community across 18.325 acres with 311 plots ranging from 94 to 177 sq. yards — designed for diverse family needs.</div>
+          </div>
+        </div>
+        <div class="dev-highlight">
+          <div class="dh-num">9</div>
+          <div>
+            <div class="dh-label">Highway Connections</div>
+            <div class="dh-desc">Mayur City is strategically located with access to 9 State and National Highways, ensuring seamless connectivity to Delhi, Gurugram, and Rohtak.</div>
+          </div>
+        </div>
+        <div class="dev-highlight">
+          <div class="dh-num">10%</div>
+          <div>
+            <div class="dh-label">Green Community Land</div>
+            <div class="dh-desc">Over 7,416 sq. meters dedicated to community facilities, green parks, jogging tracks, and landscaped areas for a healthy lifestyle.</div>
+          </div>
+        </div>
+        <div class="dev-highlight">
+          <div class="dh-num">100%</div>
+          <div>
+            <div class="dh-label">RERA Compliant</div>
+            <div class="dh-desc">Fully registered under RERA with Licence No. 144 of 2024 issued by D.T.C.P. Chandigarh. All approvals in place — your investment is protected.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECT SPECIFICATIONS ── -->
+<section class="specs-section">
+  <span class="section-label">Project at a Glance</span>
+  <h2 class="section-title">Mayur City — Key Specifications</h2>
+  <div class="divider"></div>
+  <p class="section-desc" style="color:rgba(255,255,255,.55);">Everything you need to know about the project in one place.</p>
+  <div class="specs-grid">
+    <div class="spec-card">
+      <span class="spec-num">18.3</span>
+      <div class="spec-label">Total Area (Acres)</div>
+      <div class="spec-desc">The entire colony spans 18.325 acres of planned development in Sector-27, Jhajjar, Haryana.</div>
+    </div>
+    <div class="spec-card">
+      <span class="spec-num">311</span>
+      <div class="spec-label">Total Plots</div>
+      <div class="spec-desc">311 residential plots across 24 categories ranging from 94.539 to 177.342 sq. yards in size.</div>
+    </div>
+    <div class="spec-card">
+      <span class="spec-num">₹55K</span>
+      <div class="spec-label">Per Sq. Yard</div>
+      <div class="spec-desc">Fixed base rate of ₹55,000 per sq. yard across all plot sizes under the DDJAY scheme.</div>
+    </div>
+    <div class="spec-card">
+      <span class="spec-num">45M</span>
+      <div class="spec-label">Main Road Width</div>
+      <div class="spec-desc">Main arterial road is 45 metres wide, with internal roads of 24M and 12M for smooth traffic flow.</div>
+    </div>
+    <div class="spec-card">
+      <span class="spec-num">10%</span>
+      <div class="spec-label">Community Land</div>
+      <div class="spec-desc">7,416 sq. mt. of total land allocated to parks, greens, community facilities, and open spaces.</div>
+    </div>
+    <div class="spec-card">
+      <span class="spec-num">2025</span>
+      <div class="spec-label">RERA Registration Year</div>
+      <div class="spec-desc">Registered under HRERA-PKL-JJR-678-2025 dated 21.03.2025 — fully government approved.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RERA & LEGAL ── -->
+<section class="rera-full">
+  <span class="section-label">Legal Approvals</span>
+  <h2 class="section-title">Fully Approved &<br>RERA Registered</h2>
+  <div class="divider"></div>
+  <p class="section-desc" style="color:rgba(255,255,255,.65);">Mayur City holds all requisite government approvals and RERA registration — ensuring complete buyer protection and investment security.</p>
+  <div class="rera-cards">
+    <div class="rera-card">
+      <div class="rc-label">RERA Registration No.</div>
+      <div class="rc-val">HRERA-PKL-JJR-678-2025</div>
+      <div class="rc-sub">Dated: 21st March, 2025</div>
+    </div>
+    <div class="rera-card">
+      <div class="rc-label">Licence Number</div>
+      <div class="rc-val">Licence No. 144 of 2024</div>
+      <div class="rc-sub">Issued by D.T.C.P. Chandigarh, Haryana</div>
+    </div>
+    <div class="rera-card">
+      <div class="rc-label">Government Scheme</div>
+      <div class="rc-val">Deen Dayal Jan Awas Yojna</div>
+      <div class="rc-sub">Affordable Plotted Colony</div>
+    </div>
+    <div class="rera-card">
+      <div class="rc-label">Issuing Authority</div>
+      <div class="rc-val">D.T.C.P. Chandigarh</div>
+      <div class="rc-sub">Dept. of Town & Country Planning, Haryana</div>
+    </div>
+    <div class="rera-card">
+      <div class="rc-label">Letter Reference</div>
+      <div class="rc-val">LCS-5207/JE(MK)/2024/34312</div>
+      <div class="rc-sub">Dated 14.11.2024</div>
+    </div>
+    <div class="rera-card">
+      <div class="rc-label">Developer HO</div>
+      <div class="rc-val">SCO 50-51, 3rd Floor</div>
+      <div class="rc-sub">Old Judicial Complex, Parnami Tower, Civil Lines, Gurugram</div>
+    </div>
+  </div>
+
+  <div style="margin-top:36px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); padding:24px 28px;">
+    <p style="font-size:12.5px; color:rgba(255,255,255,.5); line-height:1.85;">
+      <strong style="color:var(--gold-l);">Disclaimer:</strong> Images, designs, amenities, specifications and other details mentioned here are indicative only and are shown for the purpose of representation of Project Mayur City Licence No. 144/2024. The developer reserves the right to make changes as per applicable laws. 1 Acre = 4046.86 sq. mt. / 4840 sq. yards. 1 sq. mt. = 10.764 sq. ft. / 1 sq. yard = 9 sq. ft. RERA Registration: HRERA-PKL-JJR-678-2025.
+    </p>
+  </div>
+</section>
+
+<!-- ── PROJECT GALLERY ── -->
+<section>
+  <span class="section-label">Our Project</span>
+  <h2 class="section-title">Mayur City in Pictures</h2>
+  <div class="divider"></div>
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:36px;">
+    <div style="overflow:hidden; aspect-ratio:1;">
+      <img src="images/mayur_city1.jpeg" alt="Mayur City 1" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" loading="lazy"/>
+    </div>
+    <div style="overflow:hidden; aspect-ratio:1;">
+      <img src="images/mayur_city2.jpeg" alt="Mayur City 2" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" loading="lazy"/>
+    </div>
+    <div style="overflow:hidden; aspect-ratio:1;">
+      <img src="images/mayur_city3.jpeg" alt="Mayur City 3" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" loading="lazy"/>
+    </div>
+    <div style="overflow:hidden; aspect-ratio:1;">
+      <img src="images/mayur_city4.jpeg" alt="Mayur City 4" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" loading="lazy"/>
+    </div>
+    <div style="overflow:hidden; aspect-ratio:1;">
+      <img src="images/mayur_city5.jpeg" alt="Mayur City 5" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" loading="lazy"/>
+    </div>
+    <div style="overflow:hidden; aspect-ratio:1;">
+      <img src="images/mayur_city6.jpeg" alt="Mayur City 6" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" loading="lazy"/>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA STRIP ── -->
+<div class="cta-strip">
+  <div class="cta-strip-text">
+    <div class="cta-strip-title">Ready to Own Your Plot?</div>
+    <div class="cta-strip-sub">Call Karan Saluja: +91 88021 41396 · Starting at ₹70.2 Lakhs</div>
+  </div>
+  <div class="cta-strip-actions">
+    <a href="contact.html" class="cta-btn-w">Book Site Visit</a>
+    <a href="index.html#pricing" class="cta-btn-border">View Prices</a>
+  </div>
+</div>
+
+<!-- FOOTER injected by nav.js -->
+<script src="nav.js"></script>
+</body>
+</html>
