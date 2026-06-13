@@ -68,12 +68,12 @@
     .hero-slide.active { opacity: 1; }
     .hero-slide::after {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(10,30,18,.78) 40%, rgba(10,30,18,.3) 100%);
+      background: linear-gradient(to right, rgb(10 30 18 / 41%) 40%, rgba(10, 30, 18, .3) 100%);
     }
-    .hero-slide:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80'); }
-    .hero-slide:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1600&q=80'); }
-    .hero-slide:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=80'); }
-    .hero-slide:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600&q=80'); }
+    .hero-slide:nth-child(1) { background-image: url('images/mayur_city1.jpeg?w=1600&q=80'); }
+    .hero-slide:nth-child(2) { background-image: url('images/mayur_city2.jpeg?w=1600&q=80'); }
+    .hero-slide:nth-child(3) { background-image: url('images/mayur_city3.jpeg?w=1600&q=80'); }
+    .hero-slide:nth-child(4) { background-image: url('images/mayur_city4.jpeg?w=1600&q=80'); }
 
     .hero-content {
       position: absolute; z-index: 2; top: 50%; left: 10%;
@@ -131,6 +131,10 @@
     .hero-arrows {
       position: absolute; z-index: 3; right: 7%; top: 50%; transform: translateY(-50%);
       display: flex; flex-direction: column; gap: 12px;
+    }
+
+    #home{
+      padding: 0;
     }
     .hero-arrow {
       width: 46px; height: 46px; border: 1.5px solid rgba(255,255,255,.4);
@@ -734,23 +738,23 @@
   <div class="divider"></div>
   <div class="gallery-grid">
     <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=900&q=80" alt="Project view" />
+      <img src="images/mayur_city1.jpeg?w=900&q=80" alt="Project view" />
       <div class="gallery-overlay"><span class="gallery-overlay-icon">⊕</span></div>
     </div>
     <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=500&q=80" alt="Garden area" />
+      <img src="images/mayur_city2.jpeg?w=500&q=80" alt="Garden area" />
       <div class="gallery-overlay"><span class="gallery-overlay-icon">⊕</span></div>
     </div>
     <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=500&q=80" alt="Landscape" />
+      <img src="images/mayur_city3.jpeg?w=500&q=80" alt="Landscape" />
       <div class="gallery-overlay"><span class="gallery-overlay-icon">⊕</span></div>
     </div>
     <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?w=500&q=80" alt="Road view" />
+      <img src="images/mayur_city4.jpeg?w=500&q=80" alt="Road view" />
       <div class="gallery-overlay"><span class="gallery-overlay-icon">⊕</span></div>
     </div>
     <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500&q=80" alt="Gate" />
+      <img src="images/mayur_city5.jpeg?w=500&q=80" alt="Gate" />
       <div class="gallery-overlay"><span class="gallery-overlay-icon">⊕</span></div>
     </div>
   </div>
