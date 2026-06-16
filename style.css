@@ -273,6 +273,9 @@ footer {
   .btn-enquire.desktop-only { display: none; }
   .hamburger { display: flex; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  #home {
+  height: 80vh;
+}
 }
 @media (max-width: 520px) {
   section { padding: 64px 5%; }
