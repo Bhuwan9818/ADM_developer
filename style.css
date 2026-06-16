@@ -44,9 +44,7 @@ nav#mainNav.scrolled {
   box-shadow: 0 2px 24px rgba(0,0,0,.4);
 }
 nav#mainNav.solid { background: var(--green); box-shadow: 0 2px 24px rgba(0,0,0,.4); }
-#home {
-  height: 80vh;
-}
+
 /* Logo */
 .nav-logo { display: flex; align-items: center; gap: 10px; }
 .nav-logo-badge {
