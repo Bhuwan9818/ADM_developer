@@ -71,6 +71,14 @@
             <svg style="width:12px;height:12px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Price List
           </a>
+          <a href="layout-plan.pdf" download class="btn-dl" style="border-color:rgba(255,255,255,.25);font-size:11px;padding:8px 14px;">
+            <svg style="width:12px;height:12px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Layout Plan
+          </a>
+          <a href="rera-certificate.pdf" download class="btn-dl" style="border-color:rgba(255,255,255,.25);font-size:11px;padding:8px 14px;">
+            <svg style="width:12px;height:12px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            RERA Certificate
+          </a>
         </div>
       </div>
       <div class="footer-col">
@@ -95,9 +103,10 @@
       <div class="footer-col">
         <div class="footer-col-title">Legal</div>
         <ul>
-          <li><a href="#">RERA Certificate</a></li>
+          <li><a href="rera-certificate.pdf" download>RERA Certificate</a></li>
           <li><a href="brochure.pdf" download>Brochure PDF</a></li>
           <li><a href="pricelist.pdf" download>Price List PDF</a></li>
+          <li><a href="layout-plan.pdf" download>Layout Plan PDF</a></li>
           <li><a href="contact.html">Site Visit</a></li>
         </ul>
       </div>
